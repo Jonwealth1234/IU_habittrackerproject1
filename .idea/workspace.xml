@@ -4,13 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f11fd370-3a9a-4017-a21b-799ed150be6e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/habitProject1.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="f11fd370-3a9a-4017-a21b-799ed150be6e" name="Changes" comment="Initial commit">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.py" beforeDir="false" afterPath="$PROJECT_DIR$/db.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exportToHTML/README.md.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/exportToHTML/analyse.py.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/exportToHTML/db.py.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/exportToHTML/debug_datab.py.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/exportToHTML/habit.py.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/exportToHTML/main.py.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/exportToHTML/test_habit.py.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,8 +35,19 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "Jonwealth1234"
+  }
+}]]></component>
   <component name="GithubPullRequestsUISettings"><![CDATA[{
   "selectedUrlAndAccountId": {
     "url": "https://github.com/Jonwealth1234/IU_habitProject1.git",
@@ -55,23 +70,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Python tests.Python tests for test.TestHabit.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.Python tests for test.TestHabit.test_add_completion.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.Python tests for test.Test_Habit.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.Python tests for test_habit.Test_Habit.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.Python tests in test.py.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.Python tests in test_habit.py.executor&quot;: &quot;Run&quot;,
-    &quot;Python.analyse.executor&quot;: &quot;Run&quot;,
-    &quot;Python.counter.executor&quot;: &quot;Run&quot;,
-    &quot;Python.db.executor&quot;: &quot;Run&quot;,
-    &quot;Python.habit.executor&quot;: &quot;Run&quot;,
-    &quot;Python.main.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python tests.Python tests for test.TestHabit.executor": "Run",
+    "Python tests.Python tests for test.TestHabit.test_add_completion.executor": "Run",
+    "Python tests.Python tests for test.Test_Habit.executor": "Run",
+    "Python tests.Python tests for test_habit.Test_Habit.executor": "Run",
+    "Python tests.Python tests in test.py.executor": "Run",
+    "Python tests.Python tests in test_habit.py.executor": "Run",
+    "Python.analyse.executor": "Run",
+    "Python.counter.executor": "Run",
+    "Python.db.executor": "Run",
+    "Python.habit.executor": "Run",
+    "Python.main.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "new-master"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Python.db">
     <configuration name="db" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="habitProject1" />
@@ -195,7 +210,34 @@
       <option name="presentableId" value="Default" />
       <updated>1721273792923</updated>
     </task>
+    <task id="LOCAL-00001" summary="Initial commit">
+      <option name="closed" value="true" />
+      <created>1745127041729</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1745127041729</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Initial commit">
+      <option name="closed" value="true" />
+      <created>1745127142391</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1745127142391</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ID_ORDER">
+      <list>
+        <option value="Default.Root" />
+        <option value="Default.Author" />
+        <option value="Default.Date" />
+        <option value="Default.Subject" />
+      </list>
+    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -207,5 +249,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Initial commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="Initial commit" />
   </component>
 </project>

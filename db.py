@@ -2,7 +2,7 @@ import sqlite3
 from datetime import datetime
 
 
-def get_db(name="main.db"):
+def get_db(name: object = "main.db") -> object:
     db_connect = sqlite3.connect(name)
     create_tables(db_connect)
     add_longest_run_streak_column(db_connect)
@@ -42,6 +42,7 @@ def add_longest_run_streak_column(db_connect):
 
     :param db_connect: Database connection object.
     """
+
     cur = db_connect.cursor()
 
     # Check if the longest_run_streak column exists
@@ -52,10 +53,14 @@ def add_longest_run_streak_column(db_connect):
     if "longest_run_streak" not in column_names:
         # Add the longest_run_streak column
         cur.execute("ALTER TABLE habit ADD COLUMN longest_run_streak INTEGER DEFAULT 0")
-        db_connect.commit()
-        print("Added longest_run_streak column to the habit table.")
+
+        # Comment out the statement
+        # print("Added longest_run_streak column to the habit table.")
     else:
-        print("longest_run_streak column already exists in the habit table.")
+        # Comment out the statement
+        # print("longest_run_streak column already exists in the habit table.")
+
+        db_connect.commit()
 
 
 def update_default_periodicity(db_connect, habit_data):
@@ -66,6 +71,7 @@ def update_default_periodicity(db_connect, habit_data):
     :param habit_data: List of tuples with habit name and new periodicity.
                        Each tuple should be (habit_name, periodicity).
     """
+
     cur = db_connect.cursor()
 
     for habit_name, new_periodicity in habit_data:
@@ -76,11 +82,13 @@ def update_default_periodicity(db_connect, habit_data):
         if result and result[0] == "Daily":
             # Update the periodicity
             cur.execute('UPDATE habit SET periodicity = ? WHERE name = ?', (new_periodicity, habit_name))
-            print(f"Updated periodicity for '{habit_name}' to '{new_periodicity}'.")
+            # Comment out the print statement
+            # print(f"Updated periodicity for '{habit_name}' to '{new_periodicity}'.")
         else:
-            print(f"Skipping '{habit_name}': No default 'Daily' periodicity found.")
+            # Comment out the print statement
+            # print(f"Skipping '{habit_name}': No default 'Daily' periodicity found.")
 
-    db_connect.commit()
+            db_connect.commit()
 
 
 def add_habit(db_connect, habit_data):
@@ -148,10 +156,11 @@ def fix_null_periodicity(db_connect):
 
     :param db_connect: Database connection object.
     """
+
     cur = db_connect.cursor()
     cur.execute("UPDATE habit SET periodicity = 'Daily' WHERE periodicity IS NULL")
     db_connect.commit()
-    print("Fixed NULL periodicity values in the database.")
+    #  print("Fixed NULL periodicity values in the database.")  # This line is commented out
 
 
 def get_habit(db_connect, habit_name):
@@ -247,7 +256,8 @@ def delete_invalid_habits(db_connect):
 
     # Commit the changes
     db_connect.commit()
-    print("Invalid habits 'Daily' and 'Weekly' have been deleted.")
+    # Comment out the print statement
+    # print("Invalid habits 'Daily' and 'Weekly' have been deleted.")
 
 
 def input_data_database(db_connect):

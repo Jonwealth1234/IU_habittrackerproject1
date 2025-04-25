@@ -1,25 +1,37 @@
 import questionary
 import sys
 import os
-
+import contextlib
 from db import get_db, input_data_database, get_completion_dates, get_habit_periodicity, edit_habit, delete_habit
 from habit import Habit, load_habits_from_db, get_current_habits
 from analyse import get_longest_run_streak, get_longest_run_streak_all_habits
 
 
-def suppress_stdout(func):
-    """Context manager to suppress stdout."""
-
-    def wrapper(*args, **kwargs):
-        original_stdout = sys.stdout
-        with open(os.devnull, 'w') as devnull:
-            sys.stdout = devnull  # Redirect output to devnull
-            try:
-                return func(*args, **kwargs)
-            finally:
-                sys.stdout = original_stdout  # Restore stdout
-
-    return wrapper
+def suppress_stdout(func=None):
+    """Can be used both as a decorator and context manager to suppress stdout."""
+    if func is None:
+        # Being used as a context manager
+        @contextlib.contextmanager
+        def manager():
+            original_stdout = sys.stdout
+            with open(os.devnull, 'w') as devnull:
+                sys.stdout = devnull
+                try:
+                    yield
+                finally:
+                    sys.stdout = original_stdout
+        return manager()
+    else:
+        # Being used as a decorator
+        def wrapper(*args, **kwargs):
+            original_stdout = sys.stdout
+            with open(os.devnull, 'w') as devnull:
+                sys.stdout = devnull
+                try:
+                    return func(*args, **kwargs)
+                finally:
+                    sys.stdout = original_stdout
+        return wrapper
 
 
 def cli(completion_dates=None, name=None, current_habits=None):
@@ -30,8 +42,9 @@ def cli(completion_dates=None, name=None, current_habits=None):
 
     questionary.confirm("Do you want to continue").ask()
 
-    # Initialize the database with data
-    (suppress_stdout(input_data_database)(db_connect))
+    # Initialize the database with data, suppress unwanted output
+    with suppress_stdout():
+        input_data_database(db_connect)
 
     stop = False
     while not stop:
@@ -64,15 +77,11 @@ def cli(completion_dates=None, name=None, current_habits=None):
 
         elif choice == "Get completion dates":
             # Retrieve all habits from the database to ensure the name is valid
-            current_habits = suppress_stdout(get_current_habits)(db_connect)
+            with suppress_stdout():
+                current_habits = get_current_habits(db_connect)
             if not current_habits:
                 print("No current habits found.")
                 continue
-
-            # Display current habits
-            print("Current Habits:")
-            for habit in current_habits:
-                print(f"- {habit}")  # Assuming habit is the name
 
             # Extract habit names from the list of Habit objects
             habit_names = [habit.name for habit in current_habits]
@@ -82,7 +91,7 @@ def cli(completion_dates=None, name=None, current_habits=None):
                                             choices=habit_names).ask()
 
             # Get completion dates for the selected habit
-            completion_dates = get_completion_dates(db_connect, habit_name)
+            completion_dates = get_completion_dates(db_connect, habit_name)  # type: ignore
 
             if not completion_dates:
                 print(f"No completion dates found for habit '{habit_name}'.")
@@ -93,7 +102,8 @@ def cli(completion_dates=None, name=None, current_habits=None):
 
         elif choice == "Analyse":
             # Retrieve all habits for analysis
-            current_habits = suppress_stdout(get_current_habits)(db_connect)
+            with suppress_stdout():
+                current_habits = get_current_habits(db_connect)
             if not current_habits:
                 print("No current habits found.")
                 continue
@@ -123,28 +133,29 @@ def cli(completion_dates=None, name=None, current_habits=None):
                     choices=["Daily", "Weekly"]
                 ).ask()
 
-                habits_with_periodicity = [habit for habit in current_habits if
-                                           suppress_stdout(get_habit_periodicity)(db_connect, habit.name) == periodicity]
+                with suppress_stdout():
+                    habits_with_periodicity = [habit for habit in current_habits if
+                                               get_habit_periodicity(db_connect, habit.name) == periodicity]
                 print(f"Habits with '{periodicity}' periodicity:")
                 for habit in habits_with_periodicity:
                     print(f"- {habit}")
 
             elif analysis_choice == "Get the longest run streak of all habits":
                 try:
-                    longest_streak_all_habits = suppress_stdout(get_longest_run_streak_all_habits)(db_connect)
+                    with suppress_stdout():
+                        longest_streak_all_habits = suppress_stdout(get_longest_run_streak_all_habits)(db_connect)
                     print(f"The longest run streak across all habits is: {longest_streak_all_habits}.")
                 except Exception as e:
                     print(f"An error occurred: {e}")
 
             elif analysis_choice == "Get the longest run streak for a specific habit":
                 # Retrieve all habits for analysis
-                current_habits = suppress_stdout(get_current_habits)(db_connect)
+                with suppress_stdout():
+                    current_habits = get_current_habits(db_connect)
                 if not current_habits:
                     print("No current habits found.")
                     continue
 
-                    # Display current habits
-                print("Current Habits:")
                 habit_names = [habit.name for habit in current_habits]
                 for habit in current_habits:
                     print(f"- {habit.name}")  # Assuming habit has a name attribute
@@ -170,7 +181,8 @@ def cli(completion_dates=None, name=None, current_habits=None):
 
             elif analysis_choice == "Get the longest run streak by periodicity":
                 # Retrieve all habits for analysis
-                current_habits = suppress_stdout(get_current_habits)(db_connect)
+                with suppress_stdout():
+                    current_habits = get_current_habits(db_connect)
                 if not current_habits:
                     print("No current habits found.")
                     continue
@@ -198,16 +210,13 @@ def cli(completion_dates=None, name=None, current_habits=None):
 
         elif choice == "Edit Habit":
             # Retrieve all habits for editing
-            current_habits = suppress_stdout(get_current_habits)(db_connect)
+            with suppress_stdout():
+                current_habits = get_current_habits(db_connect)
             if not current_habits:
                 print("No current habits found.")
                 continue
 
-            # Display current habits
-            print("Current Habits:")
             habit_names = [habit.name for habit in current_habits]
-            for habit in current_habits:
-                print(f"- {habit.name}")  # Assuming habit has a name attribute
 
             # Select a habit to edit
             selected_habit_name = questionary.select("Select a habit to edit:",
@@ -234,16 +243,13 @@ def cli(completion_dates=None, name=None, current_habits=None):
 
         elif choice == "Delete Habit":
             # Retrieve all habits for deletion
-            current_habits = suppress_stdout(get_current_habits)(db_connect)
+            with suppress_stdout():
+                current_habits = get_current_habits(db_connect)
             if not current_habits:
                 print("No current habits found.")
                 continue
 
-            # Display current habits
-            print("Current Habits:")
             habit_names = [habit.name for habit in current_habits]
-            for habit in current_habits:
-                print(f"- {habit.name}")  # Assuming habit has a name attribute
 
             # Select a habit to delete
             selected_habit_name = questionary.select("Select a habit to delete:",
