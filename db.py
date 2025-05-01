@@ -2,7 +2,7 @@ import sqlite3
 from datetime import datetime
 
 
-def get_db(name: object = "main.db") -> object:
+def get_db(name: str = "main.db") -> sqlite3.Connection:
     db_connect = sqlite3.connect(name)
     create_tables(db_connect)
     add_longest_run_streak_column(db_connect)

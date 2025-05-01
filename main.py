@@ -3,7 +3,7 @@ import sys
 import os
 import contextlib
 from db import get_db, input_data_database, get_completion_dates, get_habit_periodicity, edit_habit, delete_habit
-from habit import Habit, load_habits_from_db, get_current_habits
+from habit import Habit, get_current_habits
 from analyse import get_longest_run_streak, get_longest_run_streak_all_habits
 
 
