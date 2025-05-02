@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f11fd370-3a9a-4017-a21b-799ed150be6e" name="Changes" comment="Initial commit">
+    <list default="true" id="f11fd370-3a9a-4017-a21b-799ed150be6e" name="Changes" comment="Initial commit changes">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.py" beforeDir="false" afterPath="$PROJECT_DIR$/db.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/exportToHTML/README.md.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/exportToHTML/analyse.py.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/exportToHTML/db.py.html" beforeDir="false" />
@@ -14,7 +14,6 @@
       <change beforePath="$PROJECT_DIR$/exportToHTML/habit.py.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/exportToHTML/main.py.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/exportToHTML/test_habit.py.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,15 +41,15 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "Jonwealth1234"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Jonwealth1234&quot;
   }
-}]]></component>
+}</component>
   <component name="GithubPullRequestsUISettings"><![CDATA[{
   "selectedUrlAndAccountId": {
-    "url": "https://github.com/Jonwealth1234/IU_habitProject1.git",
+    "url": "https://github.com/Jonwealth1234/IU_habittrackerproject1.git",
     "accountId": "c596951f-ef76-434d-8399-99529319e345"
   }
 }]]></component>
@@ -84,7 +83,8 @@
     "Python.habit.executor": "Run",
     "Python.main.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "new-master"
+    "git-widget-placeholder": "master",
+    "settings.editor.selected.configurable": "vcs.Git"
   }
 }]]></component>
   <component name="RunManager" selected="Python.db">
@@ -226,7 +226,23 @@
       <option name="project" value="LOCAL" />
       <updated>1745127142391</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Initial commit with clean slate">
+      <option name="closed" value="true" />
+      <created>1745557906578</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1745557906578</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Initial commit changes">
+      <option name="closed" value="true" />
+      <created>1746058393618</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1746058393618</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -252,6 +268,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Initial commit" />
+    <MESSAGE value="Initial commit with clean slate" />
+    <MESSAGE value="Initial commit changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Initial commit changes" />
   </component>
 </project>
