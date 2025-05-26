@@ -1,3 +1,4 @@
 /.venv/
 debug_datab.py/
 *.idea
+__pycache__/
